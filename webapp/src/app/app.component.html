@@ -1,0 +1,48 @@
+<h1>BusinessPatners</h1>
+
+<button class="button" type="button"(click)="reload()">Atualizar lista</button>
+<button class="button" type="button"(click)="checkoutForm.reset()">Novo</button>
+
+<form [formGroup]="checkoutForm" >
+
+  <div>
+    <label for="CardName">
+      CardName
+    </label>
+    <input id="CardName" type="text" formControlName="CardName">
+  </div>
+  <div>
+    <label for="avatar">
+      avatar
+    </label>
+    <input id="avatar" type="text" formControlName="avatar">
+  </div>
+  <div>
+    <label for="Address">
+      Address
+    </label>
+    <input id="Address" type="text" formControlName="Address">
+  </div>
+  <div>
+    <label for="ZipCode">
+      ZipCode
+    </label>
+    <input id="ZipCode" type="text" formControlName="ZipCode">
+  </div>
+  <div>
+    <label for="CardCode">
+      CardCode
+    </label>
+    <p> {{CardCode}} </p>
+  </div>
+
+  <button class="button" type="button"(click)="onSubmit()">Salvar</button>
+
+</form>
+
+<ul>
+  <div *ngFor="let partner of businessPartners">{{ partner.CardCode}} {{ partner.CardName}}
+    <button (click)="populate(partner)">Selecionar</button>
+    <button> Novo Pedido </button>
+  </div>
+</ul>
